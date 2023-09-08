@@ -1,0 +1,99 @@
+* {
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.frontpage {
+    height: 800px;
+    background-color: lightgray;
+}
+
+.intro {
+    height: 600px;
+}
+
+.project {
+    height: 400px;
+    background-color: lightgray;
+}
+
+.skills {
+    height: 400px;
+}
+
+.certificate {
+    height: 400px;
+    background-color: lightgray;
+}
+
+.footer{
+    height: 50px;
+    background-color: black;
+    color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* not-provided 클래스를 기본적으로 보이지 않도록 설정 */
+.not-provided {
+    display: none;
+}
+
+/* 470px 밑으로 가면 .not-provided 얘만 보이도록 설정 */
+@media (max-width: 470px) {
+    main,
+    section,
+    nav,
+    footer {
+        display: none;
+    }
+    .not-provided {
+        display: block;
+    }
+}
+.user-wrap{
+    width: 100%;
+    margin: 10px auto;
+    position: relative;
+}
+
+.main-img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: relative;
+    vertical-align: middle;
+}
+
+.user-text {
+    display: flex;
+    font-size: 65px;
+    top: 70%;
+    left: 55%;
+    text-align: center;
+    top: 15;
+    transform: translate(-50%, -40%);
+    position: absolute;
+    color: white;
+}
+
+.person-img {
+    left: 5px;
+    top: 0px;
+    display: inline-block
+}
+
+.t-size {
+    font-size: 60px;
+}
+
+.t-size15 {
+    font-size: 15px;
+}
+
+.t-size45 {
+    font-size: 30px;
+}
