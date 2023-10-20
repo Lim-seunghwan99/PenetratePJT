@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>{{ person.username }} 님의 프로필</h1>
+
+
+    <hr>
+
+    <h2>{{ person.username }}님께서 작성하신 게시글</h2>
+    {% for boar in person.board_set.all %}
+    <div>{{ article.title }}</div>
+    {% endfor %}
+
+    <hr>
+
+    <h2>{{ person.username }}님께서 작성하신 댓글</h2>
+    {% for commnet in person.comments.all %}
+    <div>{{ comment.content }}</div>
+    {% endfor %}
+
+    <hr>
+{% comment %} 
+    <h2>{{ person.username }}님께서 공감하신 게시글</h2>
+    {% for boar in person.like_articles.all %}
+    <div>{{ aritcle.title }}</div>
+    {% endfor %} {% endcomment %}
+{% endblock content %}

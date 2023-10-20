@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div style='text-align : center; color: black;'>
+  <h1 class="mb-4 text-warning">승환은행 VIP Lounge</h1>
+</div>
+    {% if user.is_authenticated %}
+        {{user}}
+    
+
+  <div class="d-flex justify-content-between">
+    <a href="{% url "accounts:profile" user.username %}"><button class="btn btn-warning">내 프로필</button></a>
+    <a style="height: 70%;" href="{% url 'boards:create' %}"><button class="btn btn-warning">생성하기</button></a>
+  </div>
+  {% endif %}
+
+  {% if boards|length == 0 %}아직 게시글이 없습니다
+  {% else %}
+  {% for board in boards %}
+    <p>글번호 : {{ board.id }}</p>  
+    <p>글제목 : <a href="{% url 'boards:detail' board.id %}" style="text-decoration: none;">{{ board.title }}</a></p>
+    <p>공감 수 : {{board.like_users.all|length}}</p>
+    <hr>
+    <form action="{% url "boards:likes" board.pk %}" method="POST">
+        {% csrf_token %}
+        {% if request.user in board.like_users.all %}
+          <input class='btn btn-warning' type="submit" value="공감 취소">
+        {% else %}
+          <input class='btn btn-warning' type="submit" value="공감">
+        {% endif %}
+      </form>
+  {% endfor %}
+  {% endif %}
+
+{% endblock content %}
